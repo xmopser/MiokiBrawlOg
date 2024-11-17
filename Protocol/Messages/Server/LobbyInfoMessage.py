@@ -12,7 +12,7 @@ class LobbyInfoMessage(Writer):
 
     def encode(self):
         self.writeVInt(self.count)
-        self.writeString("MiokiBrawl\nhttps://t.me/miokibrawl\nVersion: "+ self.player.versionname + "(" + self.player.version + ")" +"\nServer info: (" + self.player.version + "." + self.player.snapshot + "." + self.player.environment + "." + self.player.hosting + ")\n" + "PlayerID: " + str(self.player.ID) + "\n" + self.player.lobbymsg)
+        self.writeString("MiokiBrawl\nhttps://t.me/miokibrawl\nServer version: 4.1101.2\nHappy Lunar new year!")
 
         self.writeVInt(0) # array
         for x in range(0):

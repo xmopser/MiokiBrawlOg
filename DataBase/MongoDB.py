@@ -7,6 +7,7 @@ import json
 import bson
 from Utils.Helpers import Helpers
 
+
 class MongoDB:
     def __init__(self, conn_str):
         self.player = Player
@@ -30,7 +31,7 @@ class MongoDB:
             'Trophies': Player.trophies,
             'Tickets': Player.tickets,
             'Resources': Player.resources,
-            'TokenDoubler': Player.token_doubler,
+            'TokenDoubler': 0,
             'HighestTrophies': 0,
             'HomeBrawler': 0,
             'TrophyRoadReward': 300,
@@ -58,16 +59,6 @@ class MongoDB:
             'Season': Player.season,
             'Wins': Player.wins,
             'Day': Player.day,
-            'DailySkins': Player.dailyskins,
-            'Quest': Player.quest,
-            'Ban': Player.ban,
-            'BanReason': Player.ban_reason,
-            'AccountType': Player.account_type,
-            'TestState': Player.test_state,
-            'GemsRemove': Player.gems_remove,
-            'CreatorCodesActivated': Player.creatorcodes_activated,
-            'PvPWins': Player.pvp_wins,
-            'SdWins': Player.sd_wins,
             'TimeStamp': str(datetime.datetime.now())
         }
 

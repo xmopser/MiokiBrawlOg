@@ -44,7 +44,7 @@ class LogicClientAvatar:
         self.writeVInt(len(self.player.brawlers_id))
         for x in self.player.brawlers_id:
             self.writeDataReference(16, x)
-            self.writeVInt(self.player.brawlers_trophies[str(x)])
+            self.writeVInt(self.player.brawlers_high_trophies[str(x)])
 
         self.writeVInt(0)
         for x in range(0):

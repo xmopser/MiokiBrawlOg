@@ -5,32 +5,46 @@ class LogicBoxData:
     def randomize(self, type):
         self.box_rewards = { 'Rewards': [] }
 
-        if (type == 10):
-            self.player.resources[0]['Amount'] = self.player.resources[0]['Amount'] - 100
-            self.player.db.update_player_account(self.player.token, 'Resources', self.player.resources)
+        if (type == 100):
+            check = False
 
-            gold_reward = {'Amount': 25, 'DataRef': [0, 0], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 7}
-            self.box_rewards['Rewards'].append(gold_reward)
-            self.player.resources[1]['Amount'] = self.player.resources[1]['Amount'] + 25
-            self.player.db.update_player_account(self.player.token, 'Resources', self.player.resources)
+            if (random.randint(0,100) < 20):
+                locked_brawlers = sorted(set(self.player.brawlers_id) - set(self.player.brawlers_unlocked))
+                if (locked_brawlers):
+                    brawler = random.choice(locked_brawlers)
+                    brawler_reward = {'Amount': 1, 'DataRef': [16, brawler], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 1}
+                    self.box_rewards['Rewards'].append(brawler_reward)
+                    if brawler not in self.player.brawlers_unlocked:
+                        self.player.brawlers_unlocked.append(brawler)
+                        self.player.db.update_player_account(self.player.token, 'UnlockedBrawlers',self.player.brawlers_unlocked)
+                    check = True
 
-            brawlers_pp = []
-            for brawler in self.player.brawlers_unlocked:
-                if (self.player.brawlers_level[str(brawler)] < 8):
-                    brawlers_pp.append(brawler)
-            brawler_pp = []
-            brawler_pp = random.choice(sorted(set(brawlers_pp)))
-            pp_reward = {'Amount': 100, 'DataRef': [16, brawler_pp], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 6}
-            self.box_rewards['Rewards'].append(pp_reward)
-            self.player.brawlers_powerpoints[str(brawler_pp)] = self.player.brawlers_powerpoints[ str(brawler_pp)] + 100
-            self.player.db.update_player_account(self.player.token, 'BrawlersPowerPoints', self.player.brawlers_powerpoints)
+            if (random.randint(0,100) < 100) and not check:
+                gold_value = random.randint(20, 100)
+                gold_reward = {'Amount': gold_value, 'DataRef': [0, 0], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 7}
+                self.box_rewards['Rewards'].append(gold_reward)
+                self.player.resources[1]['Amount'] = self.player.resources[1]['Amount'] + gold_value
+                self.player.db.update_player_account(self.player.token, 'Resources', self.player.resources)
+                rewarded = []
+                for x in range(1):
+                    pp_value = random.randint(5, 30)
+                    brawler = random.choice(sorted(set(self.player.brawlers_unlocked) - set(rewarded)))
+                    if (self.player.brawlers_level[str(brawler)] < 8):
+                        pp_reward = {'Amount': pp_value, 'DataRef': [16, brawler], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 6}
+                        self.box_rewards['Rewards'].append(pp_reward)
+                        self.player.brawlers_powerpoints[str(brawler)] = self.player.brawlers_powerpoints[ str(brawler)] + pp_value
+                        self.player.db.update_player_account(self.player.token, 'BrawlersPowerPoints', self.player.brawlers_powerpoints)
+                        rewarded.append(brawler)
 
-            item = {'Amount': 5, 'DataRef': [0, 0], 'SkinRef': [0, 0 ], 'Value':8 }
-            self.box_rewards['Type'] = 100
-            self.box_rewards['Rewards'].append(item)
-            self.player.gems = self.player.gems + 5
-            self.player.db.update_player_account(self.player.token, 'Gems', self.player.gems)
-
+            if (random.randint(0,100) < 10) and not check:
+                locked_brawlers = sorted(set(self.player.brawlers_id) - set(self.player.brawlers_unlocked))
+                if (locked_brawlers):
+                    brawler = random.choice(locked_brawlers)
+                    brawler_reward = {'Amount': 1, 'DataRef': [16, brawler], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 1}
+                    self.box_rewards['Rewards'].append(brawler_reward)
+                    if brawler not in self.player.brawlers_unlocked:
+                        self.player.brawlers_unlocked.append(brawler)
+                        self.player.db.update_player_account(self.player.token, 'UnlockedBrawlers', self.player.brawlers_unlocked)
 
             if (random.randint(0,100) < 30):
                 bonus = random.choice([2, 8])
@@ -47,15 +61,15 @@ class LogicBoxData:
 
 
 
-        elif (type == 12):
+        elif (type == 12 or type == 10):
+            if (type == 10):
+                self.player.resources[0]['Amount'] = self.player.resources[0]['Amount'] - 160
+                self.player.db.update_player_account(self.player.token, 'Resources', self.player.resources)
             brawlers_id = []
             for i in range(24):
                 brawlers_id.append(i)
             brawlers_id.append(31)
-            brawlers_id.append(26)
-            brawlers_id.append(27)
-            brawlers_id.append(47)
-            brawlers_id.append(45)
+            brawlers_id.append(43)
             print(brawlers_id)
             locked_brawlers = sorted(set(brawlers_id) - set(self.player.brawlers_unlocked))
             print(locked_brawlers)
@@ -64,15 +78,15 @@ class LogicBoxData:
                 if (self.player.brawlers_level[str(brawler)] < 8):
                     brawlers_pp.append(brawler)
             if (random.randint(0,100) < 100):
-                gold_value = random.randint(50, 100)
+                gold_value = random.randint(50, 150)
                 gold_reward = {'Amount': gold_value, 'DataRef': [0, 0], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 7}
                 self.box_rewards['Rewards'].append(gold_reward)
 
                 self.player.resources[1]['Amount'] = self.player.resources[1]['Amount'] + gold_value
                 self.player.db.update_player_account(self.player.token, 'Resources', self.player.resources)
-                pp_value = random.randint(25, 55)
+
                 for i in range(3):
-                    pp_value = pp_value + random.randint(5, 15)
+                    pp_value = random.randint(25, 75)
                     rewarded = []
                     if sorted(set(brawlers_pp) - set(rewarded)) != []:
                         brawler_pp = random.choice(sorted(set(brawlers_pp) - set(rewarded)))
@@ -104,10 +118,8 @@ class LogicBoxData:
             for i in range(24):
                 brawlers_id.append(i)
             brawlers_id.append(31)
-            brawlers_id.append(26)
-            brawlers_id.append(27)
-            brawlers_id.append(47)
-            brawlers_id.append(45)
+
+            brawlers_id.append(43)
             print(brawlers_id)
             brawlers_pp = []
             locked_brawlers = sorted(set(brawlers_id) - set(self.player.brawlers_unlocked))
@@ -116,16 +128,15 @@ class LogicBoxData:
                 if (self.player.brawlers_level[str(brawler)] < 8):
                     brawlers_pp.append(brawler)
             if (random.randint(0,100) < 100):
-                gold_value = random.randint(50, 300)
+                gold_value = random.randint(10, 350)
                 gold_reward = {'Amount': gold_value, 'DataRef': [0, 0], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 7}
                 self.box_rewards['Rewards'].append(gold_reward)
 
                 self.player.resources[1]['Amount'] = self.player.resources[1]['Amount'] + gold_value
                 self.player.db.update_player_account(self.player.token, 'Resources', self.player.resources)
                 rewarded = []
-                pp_value = random.randint(50, 100)
                 for i in range(5):
-                    pp_value = pp_value + random.randint(5, 10)
+                    pp_value = random.randint(25, 150)
                     if sorted(set(brawlers_pp) - set(rewarded)) != []:
                         brawler_pp = random.choice(sorted(set(brawlers_pp) - set(rewarded)))
                         pp_reward = {'Amount': pp_value, 'DataRef': [16, brawler_pp], 'Skin': [0, 0], 'Pin': [0, 0], 'Star': [0, 0], 'Value': 6}

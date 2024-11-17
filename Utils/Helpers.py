@@ -16,88 +16,20 @@ class Helpers:
     def timerglobal(self, timer_start, timer_end):
         timer_max = (86400 * timer_end[1]) + (3600 * timer_end[0])
         timer_now = (86400 * int(datetime.today().strftime('%d'))) + (3600 * int(datetime.today().strftime('%H'))) + (60 * int(datetime.today().strftime('%M'))) + int(datetime.today().strftime('%S'))
-        print(int(datetime.today().strftime('%m')) < timer_start[2])
         print(int(datetime.today().strftime('%d')) < timer_start[1])
-        if int(datetime.today().strftime('%m')) == timer_start[2]:
-            print(1)
-            if int(datetime.today().strftime('%d')) >= timer_start[1]:
-                print(8)
-                if int(datetime.today().strftime('%m')) == timer_end[2] and int(datetime.today().strftime('%d')) < timer_end[1]:
-                    if timer_end[2] == 999: timer = timer_max - int(timer_now)
-                    else: timer = 99999
-                elif int(datetime.today().strftime('%m')) + 1 == timer_end[2]:
-                    if timer_end[2] == 2: timer = timer_max + (86400 * 31) - int(timer_now) # январь
-                    elif timer_end[2] == 3: timer = timer_max + (86400 * 28) - int(timer_now) # февраль
-                    elif timer_end[2] == 4: timer = timer_max + (86400 * 31) - int(timer_now) # март
-                    elif timer_end[2] == 5: timer = timer_max + (86400 * 30) - int(timer_now) # апрель
-                    elif timer_end[2] == 6: timer = timer_max + (86400 * 31) - int(timer_now) # май
-                    elif timer_end[2] == 7: timer = timer_max + (86400 * 30) - int(timer_now) # июнь
-                    elif timer_end[2] == 8: timer = timer_max + (86400 * 31) - int(timer_now) # июль
-                    elif timer_end[2] == 9: timer = timer_max + (86400 * 31) - int(timer_now) # август
-                    elif timer_end[2] == 10: timer = timer_max + (86400 * 30) - int(timer_now) # сентябрь
-                    elif timer_end[2] == 11: timer = timer_max + (86400 * 31) - int(timer_now) # октябрь
-                    elif timer_end[2] == 12: timer = timer_max + (86400 * 30) - int(timer_now) # ноябрь
-                    elif timer_end[2] == 999: timer = 99999
-                elif int(datetime.today().strftime('%m')) + 2 == timer_end[2]:
-                    if timer_end[2] == 2: timer = timer_max + (86400 * 31) + (86400 * 28) - int(timer_now) # 
-                    elif timer_end[2] == 3: timer = timer_max + (86400 * 28) + (86400 * 31) - int(timer_now) # 
-                    elif timer_end[2] == 4: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                    elif timer_end[2] == 5: timer = timer_max + (86400 * 30) + (86400 * 31) - int(timer_now) # 
-                    elif timer_end[2] == 6: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                    elif timer_end[2] == 7: timer = timer_max + (86400 * 30) + (86400 * 31) - int(timer_now) # 
-                    elif timer_end[2] == 8: timer = timer_max + (86400 * 31) + (86400 * 31) - int(timer_now) # 
-                    elif timer_end[2] == 9: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                    elif timer_end[2] == 10: timer = timer_max + (86400 * 30) + (86400 * 31) - int(timer_now) # 
-                    elif timer_end[2] == 11: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                    elif timer_end[2] == 999: timer = 99999
-                elif timer_end[2] == 999:
-                    timer = 86400 - (3600 * int(datetime.today().strftime('%H'))) + (60 * int(datetime.today().strftime('%M'))) + int(datetime.today().strftime('%S'))
-                else:
-                    timer = -1
+        print(int(datetime.today().strftime('%H')) < timer_start[0])
+        if not int(datetime.today().strftime('%d')) < timer_start[1] and not int(datetime.today().strftime('%H')) < timer_start[0]:
+            if int(datetime.today().strftime('%m')) == timer_end[2]:
+                print("1")
+                timer = timer_max - int(timer_now)
+            elif int(datetime.today().strftime('%m')) < timer_end[2]:
+                print("2")
+                timer = timer_max + (86400 * 31) - int(timer_now)
             else:
-                timer = -1
-        elif int(datetime.today().strftime('%m')) > timer_start[2]:
-            print(6)
-            if int(datetime.today().strftime('%m')) == timer_end[2] and int(datetime.today().strftime('%d')) < timer_end[1]:
-                if timer_end[2] == 999: timer = timer_max - int(timer_now)
-                else: timer = 99999
-            elif int(datetime.today().strftime('%m')) + 1 == timer_end[2]:
-                if timer_end[2] == 2: timer = timer_max + (86400 * 31) - int(timer_now) # январь
-                elif timer_end[2] == 3: timer = timer_max + (86400 * 28) - int(timer_now) # февраль
-                elif timer_end[2] == 4: timer = timer_max + (86400 * 31) - int(timer_now) # март
-                elif timer_end[2] == 5: timer = timer_max + (86400 * 30) - int(timer_now) # апрель
-                elif timer_end[2] == 6: timer = timer_max + (86400 * 31) - int(timer_now) # май
-                elif timer_end[2] == 7: timer = timer_max + (86400 * 30) - int(timer_now) # июнь
-                elif timer_end[2] == 8: timer = timer_max + (86400 * 31) - int(timer_now) # июль
-                elif timer_end[2] == 9: timer = timer_max + (86400 * 31) - int(timer_now) # август
-                elif timer_end[2] == 10: timer = timer_max + (86400 * 30) - int(timer_now) # сентябрь
-                elif timer_end[2] == 11: timer = timer_max + (86400 * 31) - int(timer_now) # октябрь
-                elif timer_end[2] == 12: timer = timer_max + (86400 * 30) - int(timer_now) # ноябрь
-                elif timer_end[2] == 999: timer = 99999
-            elif int(datetime.today().strftime('%m')) + 2 == timer_end[2]:
-                if timer_end[2] == 2: timer = timer_max + (86400 * 31) + (86400 * 28) - int(timer_now) # 
-                elif timer_end[2] == 3: timer = timer_max + (86400 * 28) + (86400 * 31) - int(timer_now) # 
-                elif timer_end[2] == 4: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                elif timer_end[2] == 5: timer = timer_max + (86400 * 30) + (86400 * 31) - int(timer_now) # 
-                elif timer_end[2] == 6: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                elif timer_end[2] == 7: timer = timer_max + (86400 * 30) + (86400 * 31) - int(timer_now) # 
-                elif timer_end[2] == 8: timer = timer_max + (86400 * 31) + (86400 * 31) - int(timer_now) # 
-                elif timer_end[2] == 9: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                elif timer_end[2] == 10: timer = timer_max + (86400 * 30) + (86400 * 31) - int(timer_now) # 
-                elif timer_end[2] == 11: timer = timer_max + (86400 * 31) + (86400 * 30) - int(timer_now) # 
-                elif timer_end[2] == 999: timer = 99999
-            elif timer_end[2] == 999:
-                timer = 86400 - (3600 * int(datetime.today().strftime('%H'))) + (60 * int(datetime.today().strftime('%M'))) + int(datetime.today().strftime('%S'))
-            else:
+                print("3")
                 timer = -1
         else:
             timer = -1
-        return timer
-
-    def timerglobalhour(self, timer):
-        timer_max = (3600 * timer)
-        timer_now = (3600 * int(datetime.today().strftime('%H'))) + (60 * int(datetime.today().strftime('%M'))) + int(datetime.today().strftime('%S'))
-        timer = (timer_max - timer_now)
         return timer
 
     def randomToken(self):
@@ -172,17 +104,6 @@ class Helpers:
         self.player.claimshop = player_data['ClaimShop']
         self.player.season = player_data['Season']
         self.player.day = player_data['Day']
-        self.player.dailyskins = player_data['DailySkins']
-        self.player.quest = player_data['Quest']
-        self.player.ban = player_data['Ban']
-        self.player.ban_reason = player_data['BanReason']
-        self.player.account_type = player_data['AccountType']
-        self.player.test_state = player_data['TestState']
-        self.player.gems_remove = player_data['GemsRemove']
-        self.player.emotes_id = player_data['UnlockedPins']
-        self.player.pvp_wins = player_data['PvPWins']
-        self.player.sd_wins = player_data['SdWins']
-        self.player.creatorcodes_activated = player_data['CreatorCodesActivated']
 
 
     def load_club(self, club_data):

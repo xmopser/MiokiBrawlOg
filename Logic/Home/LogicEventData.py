@@ -1,5 +1,4 @@
 import json
-from Utils.Helpers import Helpers
 
 class LogicEventData:
     events = json.loads(open("events.json", 'r').read())
@@ -17,7 +16,7 @@ class LogicEventData:
             self.writeVInt(events.index(event) + 1)
             self.writeVInt(events.index(event) + 1)
             self.writeVInt(event['Ended'])
-            self.writeVInt(Helpers.timerglobal(self, [0, 0, 1], [0, 0, 999]))  # Timer
+            self.writeVInt(99999)  # Timer
 
             self.writeVInt(0)
             self.writeDataReference(15, event['ID'])

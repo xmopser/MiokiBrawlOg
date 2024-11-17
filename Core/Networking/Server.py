@@ -21,7 +21,6 @@ class Server:
         self.ip = ip
 
     def start(self):
-        self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.server.bind((self.ip, self.port))
 
         _(f'{Helpers.cyan}[DEBUG] Server started! Listening on {self.ip}:{self.port}')

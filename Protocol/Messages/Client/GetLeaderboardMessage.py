@@ -1,6 +1,5 @@
 from ByteStream.Reader import Reader
 from Protocol.Messages.Server.LeaderboardMessage import LeaderboardMessage
-from Protocol.Messages.Server.Brawler import Brawler
 
 
 class GetLeaderboardMessage(Reader):
@@ -13,7 +12,6 @@ class GetLeaderboardMessage(Reader):
         self.readBool()
         self.readVInt()
         self.type = self.readVInt()
-        self.player.brawlerL = self.readVInt()
 
 
     def process(self, db):

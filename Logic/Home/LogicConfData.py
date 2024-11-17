@@ -44,10 +44,10 @@ class LogicConfData:
         for x in range(1):
             # IntValueEntry::encode
             self.writeInt(1)         # Unknown
-            if Helpers.timerglobal(self, [0, 23, 3], [0, 1, 4]) < 787866778:
-                self.writeInt(41000000 + 15)  # Theme ID
+            if Helpers.timerglobal(self, [18, 18, 1], [0, 31, 2]) < 0:
+                self.writeInt(41000000 + 21)  # Theme ID
             else:
-                self.writeInt(41000000 + 15)  # Theme ID
+                self.writeInt(41000000 + 21)  # Theme ID
 
         self.writeVInt(0)
         for x in range(0):
