@@ -52,15 +52,8 @@ class LoginMessage(Reader):
                 Helpers.load_club(self, club_data)
             else:
                 self.player.err_code = 1
-                LoginFailedMessage(self.client, self.player, "Аккаунт не найден в базе данных!\nПожалуйста очистите данные приложения или переустановите игру.").send()
+                LoginFailedMessage(self.client, self.player, "Account not found in database!\nPlease clear app data.").send()
 
-            try:
-                if player_data["Ban"]:
-                    self.player.err_code = 11
-                    LoginFailedMessage(self.client, self.player, "Ваш аккаунт был заблокирован навсегда! Причина: " + player_data["BanReason"] + "\nЕсли вы считаете, что произошла ошибка, сообщите администратору @xmopser в телеграмм, предоставив скриншот!\nВаш PlayerID:" + str(player_data["ID"])).send()
-            except:
-                self.player.err_code = 1
-                LoginFailedMessage(self.client, self.player, "Аккаунт не найден в базе данных!\nПожалуйста очистите данные приложения или переустановите игру.").send()
 
         LoginOkMessage(self.client, self.player, self.player.ID, self.player.token).send()
         OwnHomeDataMessage(self.client, self.player).send()

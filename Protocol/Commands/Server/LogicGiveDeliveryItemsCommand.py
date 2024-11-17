@@ -12,7 +12,10 @@ class LogicGiveDeliveryItemsCommand(Writer):
             # DeliveryUnit
             type = self.player.delivery_items['Type']
             self.writeVInt(type)
-            rewards = self.player.delivery_items['Items']
+            if type != 100:
+                rewards = LogicBoxData.randomize(self, type)['Rewards']
+            else:
+                rewards = self.player.delivery_items['Items']
 
             self.writeVInt(len(rewards))
 
@@ -25,10 +28,7 @@ class LogicGiveDeliveryItemsCommand(Writer):
                     self.writeDataReference(x['SkinRef'][0], x['SkinRef'][1])
                 except:
                     self.writeDataReference(0, 0)
-                try:
-                    self.writeDataReference(x['PinRef'][0], x['PinRef'][1])
-                except:
-                    self.writeDataReference(0, 0)
+                self.writeDataReference(0, 0)
                 self.writeDataReference(0, 0)
                 self.writeVInt(0)
 

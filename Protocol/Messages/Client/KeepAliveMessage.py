@@ -11,4 +11,4 @@ class KeepAliveMessage(Reader):
         pass
 
     def process(self, db):
-        KeepAliveOkMessage(self.client, self.player, db).send()
+        KeepAliveOkMessage(self.client, self.player).send()
