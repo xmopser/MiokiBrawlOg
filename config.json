@@ -1,0 +1,28 @@
+{
+  "MongoConnectionURL": "mongodb://localhost:27017",
+
+  "StarPoints": 0,
+  "Tickets": 0,
+  "Gold": 0,
+  "Gems": 0,
+  "Trophies": 0,
+  "ExperiencePoints": 999999,
+  "BrawlBoxTokens": 0,
+  "BigBoxTokens": 0,
+  "Region": "RU",
+  "ThemeID": 21,
+  "tutorial": 2,
+  "ContentCreatorCodes": ["miokiru", "insafer", "xmopser"],
+  "BannedIPs": [],
+  "Maintenance": false,
+  "SecondsTillMaintenanceOver": 0,
+  "Patch": false,
+  "PatchURL": "http://192.168.1.64:8080/",
+  "UpdateURL": "",
+  "Version": "5.1.3",
+  "VersionHame": "Retropolis Quest Update!",
+  "Snapshot": "02w06c",
+  "Environment": "prod",
+  "Hosting": "ruvds",
+  "LobbyMsg": "17.02.2023..."
+}
