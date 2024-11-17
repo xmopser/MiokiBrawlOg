@@ -1,0 +1,244 @@
+skin_colt_bandit - Бандит кольт - 2
+skin_brock_beach - Пляжный брок - 5
+skin_spike_sakura - Бандит кольт - 11
+skin_elprimo_king - Бандит кольт - 30
+skin_mike_psg - ПСЖ Майк - 252
+skin_shelly_psg - ПСЖ Шелли - 159
+skin_darryl_psg - ПСЖ Деррил - 158 000
+skin_dull_psg - ПСЖ Булл - 64
+skin_mike_santa - Сантамайк - 56
+skin_nita_redbear - Нита красный нос! - 60
+skin_penny_elff - Помошница Пенни! - 61
+skin_poco_pirate - Пират Поко! - 140
+skin_colt_corsar - Корсар Кольт - 135
+skin_tick_snow - Снеговик Тик! - 243
+skin_colt_player - 236 - Игрок Кольт
+skinbp_mike - 229 - БП Диномайк
+skinbp_lou - 231 - Король Лу
+skin_bull_ox - 246 - Робот Булл
+skin_spike_lord - 248 - Лорд спайк
+skin_brock_cny - 72 - Лунный Брок
+skin_colt_cny - 69 - Лунный кольт
+skin_darryl_cny - 70 - Лунный Дерил
+skin_tara_cny - 145 - Лунная Тара
+skin_8bit_cny - 143 - Вирус 8-бит
+skin_bibi_cny - 146 - героиня биби
+skinbp_darryl - 248 - БП Деррил
+offer_skin_valentines - 71 - Менестрель Поко
+offer_skin_valentines - 147 - Романтическая Пайпер
+skin_mortis_retropolis - 50 - Рокабильщик Мортис
+skin_brock_retropolis - 91 - ХотРот Брок
+skin_barley_retropolis - 90 - Мисис Барли
+skin_spike_giftshop - 207 - Маска Спайк
+skin_sprout_lunar - 210 - Лунный Спраут
+skin_bull_starrpoints - 102 - 
+skin_colt_starrpoints - 103
+skin_piper_line - 235 - 
+skin_elprimo_line - 128 - 
+skin_leon_line - 131 -
+
+Обновление Значков и Трофеев! (7.0)
+
+НОВЫЕ ПЕРСОНАЖИ!
+ - Грифф: выход в день обновления!
+ - Эдраг: выход 25 марта! Станет доступен в магазине за 169 гемов!
+
+ЗНАЧКИ!
+ - Теперь в игре есть значки!
+ - Набор значков заменил набор очков силы для 3 персонажей!
+ - Набор значков можно будет купить в любой момент!
+ - Каждую неделю будут продаваться акции со значками на определённого бойца!
+ - Каждую неделю будут продаваться скины вместе со значками!
+
+НОВЫЕ СКИНЫ!
+ - Бандитка Шелли: 29 гемов, выход в день обновления!
+ - Нита Панда: 29 гемов, выход в день обновления!
+ - Леон Акула: 79 гемов, выход 25 марта!
+ - Эль Рей Примо: 149 гемов, выход 25 марта!
+ - Ворон Феникс: 299 гемов, выход 1 апреля!
+ - Индиго Тара: бесплатно, выход 29 марта!
+ - Так-же около 20+ скинов добавлены в ротацию скинов в магазине!
+
+ПЕРЕРАБОТКА ТРОФЕЕВ!
+ - Теперь количество трофеев будет отличаться в завимисости от кубков!
+ - На маленьком количестве трофеев награда стала в 2.5 раз больше!
+ - На большом количестве трофеев нагарда стала в 10 раз меньше!
+ - Теперь достигать высоких трофеев стало сложнее!
+
+ИЗМЕНЕНИЯ В СИСТЕМЕ ПРОГРЕССИИ!
+ - В наборах ресурсов теперь нет гемов! Теперь в них 50 кредитов и 75 очков силы для 3 персонажей!
+ - Теперь в еженедельных акциях можно купить 15 гемов за 500 старпоинтов и 45 гемов за 1500 старпоинтов!
+
+ТРОФЕЙНАЯ ДОРОГА!
+ - Награды трофейной дороги будут появляться в магазине после достижения нужного количества трофеев!
+ - Трофейная дорога укорочена до 5000 трофеев!
+
+СОБЫТИЯ!
+Однажды в МиоПарк (всё обновление):
+ - −•−• −−− −•• • −−−•••   −−−−− ••−−− −−••• ••••− 
+Рамадан (с 23 марта по 1 апреля):
+ - Новый фон в меню!
+ - Неделя подарков!
+ - Бесплатный скин!
+ - И многое другое...
+
+ПРОЧЕЕ
+ - Фоны меняются в зависимости от события!
+ - Текстуры пофикшены и больше не прозрачны!
+ - Коллет бафнута!
+ - Исправленны таймеры длительности событий!
+ - Обновления теперь выходят в пятницу!
+ - Магазин, события, трофейная лига и другое теперь обновляется в 00:00 по МСК!
+
+На этом всё! Увидимся в апреле!
+
+[0, 13, 2, 3, 4, 8, 39, 31, 14, 18, 10, 6, 22, 19, 27, 26, 16, 20, 15, 1, 9, 7, 5, 37, 11, 21]
+
+      {
+         "OfferID": 19, 
+         "DataReference": [16, 43],
+         "Multiplier": 1,
+         "SkinID": 504,
+         "OfferID2": 19, 
+         "DataReference2": [16, 43],
+         "Multiplier2": 1,
+         "SkinID2": 507,
+         "OfferID3": 19, 
+         "DataReference3": [16, 43],
+         "Multiplier3": 1,
+         "SkinID3": 510,
+         "OffersCount":  3, 
+         "ShopType": 0,
+         "ShopDisplay": 0,
+         "Cost": 19,
+         "TimerStart": [0, 0, 2],
+         "TimerEnd": [0, 1, 4],
+         "OfferText": "НАБОР ЗНАЧКОВ ГРИФФА",
+         "BGR": "offer_finals",
+         "OldPrice": 28,
+         "ETType": 0,
+         "ETMultiplier": 0,
+         "ClaimID": "pinset_griff_common"
+      },
+      {
+         "OfferID": 19, 
+         "DataReference": [16, 43],
+         "Multiplier": 1,
+         "SkinID": 505,
+         "OfferID2": 19, 
+         "DataReference2": [16, 43],
+         "Multiplier2": 1,
+         "SkinID2": 514,
+         "OffersCount":  2, 
+         "ShopType": 0,
+         "ShopDisplay": 0,
+         "Cost": 29,
+         "TimerStart": [0, 0, 2],
+         "TimerEnd": [0, 1, 4],
+         "OfferText": "НАБОР ЗНАЧКОВ ГРИФФА",
+         "BGR": "offer_finals",
+         "OldPrice": 58,
+         "ETType": 0,
+         "ETMultiplier": 0,
+         "ClaimID": "pinset_griff_rare"
+      },
+      {
+         "OfferID": 19, 
+         "DataReference": [16, 43],
+         "Multiplier": 1,
+         "SkinID": 509,
+         "OfferID2": 19, 
+         "DataReference2": [16, 43],
+         "Multiplier2": 1,
+         "SkinID2": 511,
+         "OfferID3": 19, 
+         "DataReference3": [16, 43],
+         "Multiplier3": 1,
+         "SkinID3": 511,
+         "OffersCount":  3, 
+         "ShopType": 0,
+         "ShopDisplay": 0,
+         "Cost": 49,
+         "TimerStart": [0, 0, 2],
+         "TimerEnd": [0, 1, 4],
+         "OfferText": "НАБОР ЗНАЧКОВ ГРИФФА",
+         "BGR": "offer_finals",
+         "OldPrice": 98,
+         "ETType": 0,
+         "ETMultiplier": 0,
+         "ClaimID": "pinset_griff_epic"
+      },
+      {
+         "OfferID": 19, 
+         "DataReference": [16, 43],
+         "Multiplier": 1,
+         "SkinID": 391,
+         "OfferID2": 19, 
+         "DataReference2": [16, 43],
+         "Multiplier2": 1,
+         "SkinID2": 393,
+         "OfferID3": 19, 
+         "DataReference3": [16, 43],
+         "Multiplier3": 1,
+         "SkinID3": 395,
+         "OffersCount":  3, 
+         "ShopType": 0,
+         "ShopDisplay": 0,
+         "Cost": 19,
+         "TimerStart": [0, 0, 2],
+         "TimerEnd": [0, 1, 4],
+         "OfferText": "НАБОР ЗНАЧКОВ ЕДГАРА",
+         "BGR": "offer_finals",
+         "OldPrice": 28,
+         "ETType": 0,
+         "ETMultiplier": 0,
+         "ClaimID": "pinset_edgar_common"
+      },
+      {
+         "OfferID": 19, 
+         "DataReference": [16, 43],
+         "Multiplier": 1,
+         "SkinID": 392,
+         "OfferID2": 19, 
+         "DataReference2": [16, 43],
+         "Multiplier2": 1,
+         "SkinID2": 455,
+         "OffersCount":  2, 
+         "ShopType": 0,
+         "ShopDisplay": 0,
+         "Cost": 29,
+         "TimerStart": [0, 0, 2],
+         "TimerEnd": [0, 1, 4],
+         "OfferText": "НАБОР ЗНАЧКОВ ЕДГАРА",
+         "BGR": "offer_finals",
+         "OldPrice": 58,
+         "ETType": 0,
+         "ETMultiplier": 0,
+         "ClaimID": "pinset_edgar_rare"
+      },
+      {
+         "OfferID": 19, 
+         "DataReference": [16, 43],
+         "Multiplier": 1,
+         "SkinID": 394,
+         "OfferID2": 19, 
+         "DataReference2": [16, 43],
+         "Multiplier2": 1,
+         "SkinID2": 397,
+         "OfferID3": 396, 
+         "DataReference3": [16, 43],
+         "Multiplier3": 1,
+         "SkinID3": 511,
+         "OffersCount":  3, 
+         "ShopType": 0,
+         "ShopDisplay": 0,
+         "Cost": 49,
+         "TimerStart": [0, 0, 2],
+         "TimerEnd": [0, 1, 4],
+         "OfferText": "НАБОР ЗНАЧКОВ ЕДГАРА",
+         "BGR": "offer_finals",
+         "OldPrice": 147,
+         "ETType": 0,
+         "ETMultiplier": 0,
+         "ClaimID": "pinset_edgar_epic"
+      },

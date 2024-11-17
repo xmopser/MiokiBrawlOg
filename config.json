@@ -1,0 +1,28 @@
+{
+  "MongoConnectionURL": "mongodb://localhost:27017",
+
+  "StarPoints": 0,
+  "Tickets": 0,
+  "Gold": 0,
+  "Gems": 0,
+  "Trophies": 0,
+  "ExperiencePoints": 0,
+  "BrawlBoxTokens": 0,
+  "BigBoxTokens": 0,
+  "Region": "RU",
+  "ThemeID": 13,
+  "tutorial": 2,
+  "ContentCreatorCodes": ["miokiru", "insafer", "xmopser", "love", "wikli", "mexa", "leakdev", "sigma"],
+  "BannedIPs": [],
+  "Maintenance": "false",
+  "MaintenanceOverTimer": 14,
+  "Patch": false,
+  "PatchURL": "http://192.168.1.64:8080/",
+  "UpdateURL": "",
+  "Version": "7.0",
+  "VersionHame": "Pins and Fix Update",
+  "Snapshot": "03w10b",
+  "Environment": "prod",
+  "Hosting": "ruvds",
+  "LobbyMsg": "Hello World!"
+}
