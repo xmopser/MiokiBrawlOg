@@ -1,6 +1,4 @@
 from datetime import datetime
-from Utils.Helpers import Helpers
-from datetime import datetime
 from Logic.Home.LogicShopData import LogicShopData
 
 class LogicDailyData:
@@ -12,9 +10,9 @@ class LogicDailyData:
         self.writeVInt(time_stamp)
         self.writeVInt(time_stamp)
 
-        self.writeVInt(int(self.player.trophies))
-        self.writeVInt(int(self.player.trophies))
-        self.writeVInt(int(self.player.trophies))
+        self.writeVInt(self.player.trophies)
+        self.writeVInt(self.player.high_trophies)
+        self.writeVInt(self.player.high_trophies)
 
         self.writeVInt(self.player.trophy_reward)
         self.writeVInt(self.player.exp_points)
@@ -39,16 +37,16 @@ class LogicDailyData:
             self.writeDataReference(0,0)
 
         self.writeVInt(0)      # Leaderboard Global TID
-        self.writeVInt(self.player.trophies)  # Trophy Road Reached Icon
+        self.writeVInt(self.player.high_trophies)  # Trophy Road Reached Icon
         self.writeVInt(0)      # Unknown
         self.writeVInt(0)      # Unknown
 
         self.writeUInt8(0)     # Is Token Limit Reached
 
         self.writeVInt(self.player.token_doubler)
-        self.writeVInt(Helpers.timerglobal(self, [0, 0, 0], [12, 8, 4]))  # Brawl Pass Timer
+        self.writeVInt(99999)  # Trophy Road Timer
         self.writeVInt(0)      # Power Play Timer
-        self.writeVInt(Helpers.timerglobal(self, [0, 0, 0], [12, 8, 4]))  # Brawl Pass Timer
+        self.writeVInt(99999)  # Brawl Pass Timer
 
         self.writeVInt(0)  # Unknown
 
@@ -83,7 +81,7 @@ class LogicDailyData:
         self.writeVInt(1)
         self.writeVInt(1)  # Unknown
         hb = "False"
-        for i in range(60):
+        for i in range(50):
             if self.player.home_brawler == i:
                 hb = "True"
         if hb == "True":
@@ -94,12 +92,10 @@ class LogicDailyData:
         self.writeString(self.player.region)
         self.writeString(self.player.content_creator)
 
-        self.writeVInt(3)  # animka Count
+        self.writeVInt(2)  # animka Count
         self.writeInt(4) #4-трофеи, 3-токены, 14-монеты, 8 ?-стар поинты, 5-жетоны(врядли робят сейчас), 13-жетоны бравлера
         self.writeInt(self.player.trp)
         self.writeInt(8) #4-трофеи, 3-токены, 14-монеты, 8 ?-стар поинты, 5-жетоны(врядли робят сейчас), 13-жетоны бравлера
-        self.writeInt(self.player.spa)
-        self.writeInt(5) #4-трофеи, 3-токены, 14-монеты, 8 ?-стар поинты, 5-жетоны(врядли робят сейчас), 13-жетоны бравлера
         self.writeInt(self.player.spa)
 
         self.writeVInt(0)  # CooldownEntry
@@ -110,7 +106,7 @@ class LogicDailyData:
 
         self.writeVInt(1)  # BrawlPassSeasonData
         for x in range(1):
-            self.writeVInt(0)  # сезон бп
+            self.writeVInt(3)  # сезон бп
             self.writeVInt(-1)  #Tokens
             self.writeBool(self.player.bp_activated)
             self.writeVInt(2)  # Pass Progress
@@ -130,24 +126,21 @@ class LogicDailyData:
 
         self.writeBoolean(True) # LogicQuests
         if True:
-            self.writeVInt(len(self.player.quest))
-            for x in self.player.quest:
+            self.writeVInt(0)
+            for x in range(0):
                 self.writeVInt(0)     # Unknown
                 self.writeVInt(0)     # Unknown
                 self.writeVInt(1)     # Mission Type
-                self.writeVInt(x['Wins'])     # Achieved Goal
-                self.writeVInt(x['Goal'])     # Quest Goal
-                self.writeVInt(x['Reward'])    # Tokens Reward
+                self.writeVInt(2)     # Achieved Goal
+                self.writeVInt(8)     # Quest Goal
+                self.writeVInt(10)    # Tokens Reward
                 self.writeVInt(0)     # Unknown
                 self.writeVInt(0)     # Current level
                 self.writeVInt(0)     # Max level
-                if x['Goal'] == 3:
-                    self.writeVInt(1)     # Quest Type
-                else:
-                    self.writeVInt(0)     # Quest Type
+                self.writeVInt(1)     # Quest Type
                 self.writeUInt8(2)    # Quest State
-                self.writeDataReference(16, x['BrawlerID'])
-                self.writeVInt(-1)     # GameMode
+                self.writeDataReference(16, 0)
+                self.writeVInt(0)     # GameMode
                 self.writeVInt(0)     # Unknown
                 self.writeVInt(0)     # Unknown
 

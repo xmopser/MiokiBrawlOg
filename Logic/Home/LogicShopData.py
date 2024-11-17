@@ -1,7 +1,5 @@
 import json
-from Utils.Helpers import Helpers
 from datetime import datetime
-import random
 from Logic.Home.LogicGlobal import LogicGlobal
 
 class LogicShopData:
@@ -22,7 +20,7 @@ class LogicShopData:
 
     def encodeShopPacks(self):
         # Unknown
-        self.writeArrayVint([1, 3, 4, 5, 10, 15, 20, 25])
+        self.writeArrayVint([20, 35, 75, 140, 290, 480, 800, 1250])
         self.writeArrayVint([1, 2, 3, 4, 5, 10, 15, 20])
         # Tickets
         self.writeArrayVint([10, 30, 80])
@@ -41,23 +39,13 @@ class LogicShopData:
 
     def encodeShopOffers(self):
         self.writeVInt(len(LogicShopData.offers))
-
         for x in LogicShopData.offers:
             self.writeVInt(x['OffersCount']) # array
             if x['OffersCount'] >= 1:
                 self.writeVInt(x['OfferID'])
                 self.writeVInt(x['Multiplier'])
                 self.writeDataReference(x['DataReference'][0], x['DataReference'][1])
-                if x['ClaimID'] == "skin1":
-                    self.writeVInt(self.player.dailyskins[0])
-                elif x['ClaimID'] == "skin2":
-                    self.writeVInt(self.player.dailyskins[1])
-                elif x['ClaimID'] == "skin3":
-                    self.writeVInt(self.player.dailyskins[2])
-                elif x['ClaimID'] == "skin4":
-                    self.writeVInt(self.player.dailyskins[3])
-                else:
-                    self.writeVInt(x['SkinID'])
+                self.writeVInt(x['SkinID'])
             if x['OffersCount'] >= 2:
                 self.writeVInt(x['OfferID2'])
                 self.writeVInt(x['Multiplier2'])
@@ -72,140 +60,120 @@ class LogicShopData:
             self.writeVInt(x['ShopType'])
 
             self.writeVInt(x['Cost'])
-            self.writeVInt(Helpers.timerglobal(self, x['TimerStart'], x['TimerEnd']))
+            self.writeVInt(x['Timer'])
 
             self.writeVInt(1)
             self.writeVInt(100)
-            if x['ClaimID'] in self.player.claimshop or Helpers.timerglobal(self, x['TimerStart'], x['TimerEnd']) < 0:
+            if x['ClaimID'] == 898989:
+                self.writeUInt8(False)
+            elif x['ClaimID'] == 70 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_5" and self.player.trophies < 5:
+            elif x['ClaimID'] == 71 and LogicGlobal.battles < 50:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_10" and self.player.trophies < 10:
+            elif x['ClaimID'] == 72 and LogicGlobal.battles < 75:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_15" and self.player.trophies < 15:
+            elif x['ClaimID'] == 73 and LogicGlobal.battles < 100:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_20" and self.player.trophies < 20:
+            elif x['ClaimID'] == 74 and LogicGlobal.battles < 125:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_30" and self.player.trophies < 30:
+            elif x['ClaimID'] == 75 and LogicGlobal.battles < 150:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_40" and self.player.trophies < 40:
+            elif x['ClaimID'] == 76 and LogicGlobal.battles < 200:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_60" and self.player.trophies < 60:
+            elif x['ClaimID'] == 77 and LogicGlobal.battles < 250:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_100" and self.player.trophies < 100:
+            elif x['ClaimID'] == 78 and LogicGlobal.battles < 300:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_150" and self.player.trophies < 150:
+            elif x['ClaimID'] == 79 and LogicGlobal.battles < 350:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_200" and self.player.trophies < 200:
+            elif x['ClaimID'] == 80 and LogicGlobal.battles < 400:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_250" and self.player.trophies < 250:
+            elif x['ClaimID'] == 81 and LogicGlobal.battles < 450:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_300" and self.player.trophies < 300:
+            elif x['ClaimID'] == 82 and LogicGlobal.battles < 525:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_350" and self.player.trophies < 350:
+            elif x['ClaimID'] == 83 and LogicGlobal.battles < 1600:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_400" and self.player.trophies < 400:
+            elif x['ClaimID'] == 84 and LogicGlobal.battles < 675:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_450" and self.player.trophies < 450:
+            elif x['ClaimID'] == 85 and LogicGlobal.battles < 800:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_500" and self.player.trophies < 500:
+            elif x['ClaimID'] == 86 and LogicGlobal.battles < 905:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_550" and self.player.trophies < 550:
+            elif x['ClaimID'] == 87 and LogicGlobal.battles < 1000:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_600" and self.player.trophies < 600:
+            elif x['ClaimID'] == 88 and LogicGlobal.battles < 1150:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_650" and self.player.trophies < 650:
+            elif x['ClaimID'] == 89 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_700" and self.player.trophies < 700:
+            elif x['ClaimID'] == 90 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_750" and self.player.trophies < 750:
+            elif x['ClaimID'] == 91 and LogicGlobal.battles < 300:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_800" and self.player.trophies < 800:
+            elif x['ClaimID'] == 92 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_850" and self.player.trophies < 850:
+            elif x['ClaimID'] == 93 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_900" and self.player.trophies < 900:
+            elif x['ClaimID'] == 94 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_950" and self.player.trophies < 950:
+            elif x['ClaimID'] == 95 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1000" and self.player.trophies < 1000:
+            elif x['ClaimID'] == 96 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1100" and self.player.trophies < 1100:
+            elif x['ClaimID'] == 97 and LogicGlobal.battles < 1000:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1200" and self.player.trophies < 1200:
+            elif x['ClaimID'] == 98 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1300" and self.player.trophies < 1300:
+            elif x['ClaimID'] == 99 and LogicGlobal.battles < 2500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1400" and self.player.trophies < 1400:
+            elif x['ClaimID'] == 160 and LogicGlobal.battles < 300:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1500" and self.player.trophies < 1500:
+            elif x['ClaimID'] == 161 and LogicGlobal.battles < 1600:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1600" and self.player.trophies < 1600:
+            elif x['ClaimID'] == 162 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1700" and self.player.trophies < 1700:
+            elif x['ClaimID'] == 163 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1800" and self.player.trophies < 1800:
+            elif x['ClaimID'] == 164 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_1900" and self.player.trophies < 1900:
+            elif x['ClaimID'] == 165 and LogicGlobal.battles < 300:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2000" and self.player.trophies < 2000:
+            elif x['ClaimID'] == 166 and LogicGlobal.battles < 300:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2100" and self.player.trophies < 2100:
+            elif x['ClaimID'] == 167 and LogicGlobal.battles < 300:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2200" and self.player.trophies < 2200:
+            elif x['ClaimID'] == 168 and LogicGlobal.battles < 1600:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2300" and self.player.trophies < 2300:
+            elif x['ClaimID'] == 169 and LogicGlobal.battles < 1600:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2400" and self.player.trophies < 2400:
+            elif x['ClaimID'] == 170 and LogicGlobal.battles < 1600:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2500" and self.player.trophies < 2500:
+            elif x['ClaimID'] == 171 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2600" and self.player.trophies < 2600:
+            elif x['ClaimID'] == 172 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2700" and self.player.trophies < 2700:
+            elif x['ClaimID'] == 173 and LogicGlobal.battles < 25:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2800" and self.player.trophies < 2800:
+            elif x['ClaimID'] == 180 and LogicGlobal.battles < 1300:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_2900" and self.player.trophies < 2900:
+            elif x['ClaimID'] == 181 and LogicGlobal.battles < 1400:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3000" and self.player.trophies < 3000:
+            elif x['ClaimID'] == 182 and LogicGlobal.battles < 1500:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3100" and self.player.trophies < 3100:
+            elif x['ClaimID'] == 183 and LogicGlobal.battles < 1650:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3200" and self.player.trophies < 3200:
+            elif x['ClaimID'] == 184 and LogicGlobal.battles < 1800:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3300" and self.player.trophies < 3300:
+            elif x['ClaimID'] == 185 and LogicGlobal.battles < 1950:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3400" and self.player.trophies < 3400:
+            elif x['ClaimID'] == 186 and LogicGlobal.battles < 2100:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3500" and self.player.trophies < 3500:
+            elif x['ClaimID'] == 187 and LogicGlobal.battles < 2250:
                 self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3600" and self.player.trophies < 3600:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3700" and self.player.trophies < 3700:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3800" and self.player.trophies < 3800:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_3900" and self.player.trophies < 3900:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_4000" and self.player.trophies < 4000:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_4150" and self.player.trophies < 4150:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_4300" and self.player.trophies < 4300:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_4500" and self.player.trophies < 4500:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_4750" and self.player.trophies < 4750:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_5000" and self.player.trophies < 5000:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "tr_5000" and self.player.trophies < 5000:
-                self.writeUInt8(True)
-            elif x['ClaimID'] == "starrroad_end" and sorted(set([2, 6, 8, 10, 13, 22, 24, 3, 4, 7, 9, 18, 19, 25, 34, 1, 15, 16, 20, 26, 27, 49, 43, 36, 45, 29, 5, 12, 23, 28, 40, 35, 38, 41, 39, 44, 46, 48, 50]) - set(self.player.brawlers_unlocked)) != []:
+            elif x['ClaimID'] == 188 and LogicGlobal.battles < 2400:
                 self.writeUInt8(True)
             else:
-                self.writeUInt8(False)
+                self.writeUInt8(self.player.claim[x['ClaimID']])
 
             self.writeUInt8(0)
             self.writeVInt(x['ShopDisplay'])
@@ -226,7 +194,7 @@ class LogicShopData:
 
 
     def encodeBoxes(self):
-        self.writeVInt(500) # Tokens for 1 Brawl Box
+        self.writeVInt(160) # Tokens for 1 Brawl Box
         self.writeVInt(10)  # Tokens for 1 Big Box
 
         self.writeVInt(LogicShopData.boxes[0]['Cost'])

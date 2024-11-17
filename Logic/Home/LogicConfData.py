@@ -2,7 +2,6 @@ from datetime import datetime
 from Logic.Home.LogicEventData import LogicEventData
 from Logic.Home.LogicShopData import LogicShopData
 from Logic.Home.LogicGlobal import LogicGlobal
-from Utils.Helpers import Helpers
 
 class LogicConfData:
 
@@ -44,10 +43,7 @@ class LogicConfData:
         for x in range(1):
             # IntValueEntry::encode
             self.writeInt(1)         # Unknown
-            if Helpers.timerglobal(self, [0, 23, 3], [0, 1, 4]) < 787866778:
-                self.writeInt(41000000 + 15)  # Theme ID
-            else:
-                self.writeInt(41000000 + 15)  # Theme ID
+            self.writeInt(41000000 + self.player.theme_id)  # Theme ID
 
         self.writeVInt(0)
         for x in range(0):

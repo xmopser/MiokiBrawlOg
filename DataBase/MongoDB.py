@@ -7,6 +7,7 @@ import json
 import bson
 from Utils.Helpers import Helpers
 
+
 class MongoDB:
     def __init__(self, conn_str):
         self.player = Player
@@ -18,7 +19,7 @@ class MongoDB:
             print(f"{Helpers.red}[ERROR] Unable to connect to Mongo server!")
             sys.exit()
 
-        self.database = self.client['Classic-Brawl']
+        self.database = self.client['Classic-Brawl-33']
         self.players = self.database['Players']
         self.clubs = self.database['Clubs']
         self.mongo_utils = MongoUtils()
@@ -30,7 +31,7 @@ class MongoDB:
             'Trophies': Player.trophies,
             'Tickets': Player.tickets,
             'Resources': Player.resources,
-            'TokenDoubler': Player.token_doubler,
+            'TokenDoubler': 0,
             'HighestTrophies': 0,
             'HomeBrawler': 0,
             'TrophyRoadReward': 300,
@@ -42,32 +43,21 @@ class MongoDB:
             'BrawlersHighestTrophies': Player.brawlers_high_trophies,
             'BrawlersLevel': Player.brawlers_level,
             'BrawlersPowerPoints': Player.brawlers_powerpoints,
-            'UnlockedSkins2': Player.unlocked_skins,
+            'UnlockedSkins': Player.unlocked_skins,
             'UnlockedPins': Player.emotes_id,
             'SelectedSkins': Player.selected_skins,
             'SelectedBrawler': 0,
             'Region': Player.region,
-            'SupportedContentCreator': "MiokiBrawl",
+            'SupportedContentCreator': "",
             'StarPower': Player.starpower,
             'Gadget': Player.gadget,
             'BrawlPassActivated': False,
             'WelcomeMessageViewed': False,
             'ClubID': 0,
             'ClubRole': 1,
-            'ClaimShop': Player.claimshop,
+            'Claim': Player.claim,
             'Season': Player.season,
             'Wins': Player.wins,
-            'Day': Player.day,
-            'DailySkins': Player.dailyskins,
-            'Quest': Player.quest,
-            'Ban': Player.ban,
-            'BanReason': Player.ban_reason,
-            'AccountType': Player.account_type,
-            'TestState': Player.test_state,
-            'GemsRemove': Player.gems_remove,
-            'CreatorCodesActivated': Player.creatorcodes_activated,
-            'PvPWins': Player.pvp_wins,
-            'SdWins': Player.sd_wins,
             'TimeStamp': str(datetime.datetime.now())
         }
 
