@@ -1,0 +1,22 @@
+{
+  "MongoConnectionURL": "mongodb://localhost:27017",
+
+  "StarPoints": 0,
+  "Tickets": 0,
+  "Gold": 0,
+  "Gems": 0,
+  "Trophies": 0,
+  "ExperiencePoints": 999999,
+  "BrawlBoxTokens": 160,
+  "BigBoxTokens": 0,
+  "Region": "RU",
+  "ThemeID": 20,
+  "tutorial": 2,
+  "ContentCreatorCodes": ["miokiru"],
+  "BannedIPs": [],
+  "Maintenance": false,
+  "SecondsTillMaintenanceOver": 600,
+  "Patch": false,
+  "PatchURL": "http://192.168.1.64:8080/",
+  "UpdateURL": ""
+}
