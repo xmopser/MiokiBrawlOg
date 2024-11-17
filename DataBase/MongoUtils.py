@@ -26,10 +26,7 @@ class MongoUtils:
     def load_all_documents(self, collection, args):
         doc_list = []
         cursor = collection.find(args)
-        i = 0
         for document in cursor:
-            i += 1
-            print(str(i))
             doc_list.append(document)
 
         return doc_list

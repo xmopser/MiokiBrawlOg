@@ -1,7 +1,5 @@
 from ByteStream.Writer import Writer
 from Utils.Fingerprint import Fingerprint
-from Utils.Helpers import Helpers
-from datetime import datetime
 
 
 class LoginFailedMessage(Writer):
@@ -48,7 +46,7 @@ class LoginFailedMessage(Writer):
 
         self.writeString(self.msg)
 
-        self.writeInt(Helpers.timerglobalhour(self, self.player.maintenance_time))
+        self.writeInt(self.player.maintenance_time)
         self.writeBoolean(False)
 
         self.writeString()

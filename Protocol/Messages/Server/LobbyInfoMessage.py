@@ -1,5 +1,4 @@
 from ByteStream.Writer import Writer
-from Logic.Home.LogicGlobal import LogicGlobal
 import time
 
 class LobbyInfoMessage(Writer):
@@ -12,7 +11,7 @@ class LobbyInfoMessage(Writer):
 
     def encode(self):
         self.writeVInt(self.count)
-        self.writeString("MiokiBrawl\nhttps://t.me/miokibrawl\nVersion: "+ self.player.versionname + "(" + self.player.version + ")" +"\nServer info: (" + self.player.version + "." + self.player.snapshot + "." + self.player.environment + "." + self.player.hosting + ")\n" + "PlayerID: " + str(self.player.ID) + "\n" + self.player.lobbymsg)
+        self.writeString("MiokiBrawl\nhttps://t.me/miokibrawl\nServer version: 3.1\nWins: " + str(self.player.wins) + "\nHappy Brawlydays!")
 
         self.writeVInt(0) # array
         for x in range(0):

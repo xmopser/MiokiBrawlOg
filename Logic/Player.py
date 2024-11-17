@@ -29,7 +29,6 @@ class Player:
     resources = [{'ID': 1, 'Amount': settings['BrawlBoxTokens']}, {'ID': 8, 'Amount': settings['Gold']}, {'ID': 9, 'Amount': settings['BigBoxTokens']}, {'ID': 10, 'Amount': settings['StarPoints']}]
     high_trophies = 0
     tokeni = 0
-    spa = 0
     trp = 0
     tkn = 0
     trophy_reward = 300
@@ -55,38 +54,17 @@ class Player:
     welcome_msg_viewed = False
     theme_id = settings['ThemeID']
     content_creator_codes = settings['ContentCreatorCodes']
-    maintenance = False
-    maintenance_time  = settings['MaintenanceOverTimer']
+    maintenance = settings['Maintenance']
+    maintenance_time  = settings['SecondsTillMaintenanceOver']
     patch = settings['Patch']
     patch_url = settings['PatchURL']
     patch_sha = Fingerprint.loadFinger("GameAssets/fingerprint.json")
     update_url = settings['UpdateURL']
-    claimshop = []
+    claim = []
     season = 0
     wins = 0
-    day = 0
-    dailyskins = [0, 0, 0, 0]
-    version = settings['Version']
-    versionname = settings['VersionHame']
-    snapshot = settings['Snapshot']
-    environment = settings['Environment']
-    hosting = settings['Hosting']
-    lobbymsg = settings['LobbyMsg']
-    quest = [{'BrawlerID': 0, 'Goal': 3, 'Wins': 0, 'Reward': 100}, {'BrawlerID': 0, 'Goal': 3, 'Wins': 0, 'Reward': 100}, {'BrawlerID': 0, 'Goal': 5, 'Wins': 0, 'Reward': 250}, {'BrawlerID': 0, 'Goal': 8, 'Wins': 0, 'Reward': 500}, {'BrawlerID': 0, 'Goal': 5, 'Wins': 0, 'Reward': 250}, {'BrawlerID': 0, 'Goal': 8, 'Wins': 0, 'Reward': 500}]
-    brawlers_rare = [2, 6, 8, 10, 13, 22, 24]
-    brawlers_superrare = [3, 4, 7, 9, 18, 19, 25, 34]
-    brawlers_epic = [1, 15, 16, 20, 26, 27, 49, 43, 36, 45, 29]
-    brawlers_megaepic = [11, 14, 17, 21, 31, 37, 30, 32, 42, 47]
-    brawlers_legendary = [5, 12, 23, 28, 40]
-    brawlers_chromatic = [35, 38, 41, 39, 44, 46, 48, 50]
-    ban = False
-    ban_reason = False
-    account_type = "Player"
-    test_state = True
-    gems_remove = False
-    creatorcodes_activated = []
-    pvp_wins = 0
-    sd_wins = 0
+    for i in range(1000):
+        claim.append(False)
 
     delivery_items = {}
     box_rewards = {}
